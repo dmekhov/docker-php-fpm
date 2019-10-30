@@ -1,7 +1,7 @@
 # docker-php-fpm
 
-[php-fpm](https://github.com/docker-library/php/blob/master/7.3/stretch/fpm/Dockerfile) based docker image 
-prefer for laravel project, but can use with another.
+Laravel ready [php-fpm](https://github.com/docker-library/php/blob/master/7.3/stretch/fpm/Dockerfile) based docker image, 
+but can use with another projects.
 
 default php version: 7.3
 
@@ -30,4 +30,4 @@ INSTALL_ADDITIONAL_LOCALES=true
 ENABLE_XDEBUG=false  
 INSTALL_MYSQL=false  
 INSTALL_PGSQL=false  
-ADDITIONAL_LOCALES=  
+ADDITIONAL_LOCALES=  # for example "en_US.UTF-8"

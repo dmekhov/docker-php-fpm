@@ -23,7 +23,7 @@ RUN docker-php-ext-configure gd \
 
 ###########################################################################
 # xDebug:
-# for enable pass ENABLE_XDEBUG=true env variable
+# for enable set ENABLE_XDEBUG=true env variable
 ###########################################################################
 
 ARG INSTALL_XDEBUG=true
@@ -89,6 +89,7 @@ COPY ./opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
 ###########################################################################
 # Mysql Modifications:
+# for install php-extention set INSTALL_MYSQL=true env variable
 ###########################################################################
 
 USER root
@@ -97,11 +98,12 @@ ARG INSTALL_MYSQL=true
 
 RUN if [ ${INSTALL_MYSQL} = true ]; then \
     apt-get update -yqq && \
-    apt-get -y install mysql-client \
+    apt-get -y install mariadb-client \
 ;fi
 
 ###########################################################################
 # PGSQL Modifications:
+# for install php-extention set INSTALL_PGSQL=true env variable
 ###########################################################################
 
 USER root
@@ -154,6 +156,7 @@ RUN if [ ${INSTALL_IMAGEMAGICK} = true ]; then \
 
 ###########################################################################
 # Install additional locales:
+# for install additional locales set ADDITIONAL_LOCALES="xx_XX" env variable
 ###########################################################################
 
 ARG INSTALL_ADDITIONAL_LOCALES=true
